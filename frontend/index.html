@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-KYC Records Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>VKYC Records</h1>
+            <div class="header-right">
+                <input type="text" id="searchLanInput" placeholder="Search LAN...">
+                <button id="searchLanBtn">Search</button>
+                <span class="company-name">L & T Finance</span>
+            </div>
+        </header>
+
+        <div class="upload-section">
+            <label for="bulkUploadFile" class="upload-label">Upload LAN IDs (CSV/TXT, max 50):</label>
+            <input type="file" id="bulkUploadFile" accept=".csv, .txt">
+            <button id="uploadFileBtn">Upload File</button>
+            <p id="uploadMessage" class="message"></p>
+        </div>
+
+        <div class="controls">
+            <div class="filter-sort-group">
+                <label for="dateFilter">Date:</label>
+                <input type="date" id="dateFilter">
+                <label for="monthFilter">Month:</label>
+                <select id="monthFilter">
+                    <option value="">All</option>
+                    <option value="1">Jan</option>
+                    <option value="2">Feb</option>
+                    <option value="3">Mar</option>
+                    <option value="4">Apr</option>
+                    <option value="5">May</option>
+                    <option value="6">Jun</option>
+                    <option value="7">Jul</option>
+                    <option value="8">Aug</option>
+                    <option value="9">Sep</option>
+                    <option value="10">Oct</option>
+                    <option value="11">Nov</option>
+                    <option value="12">Dec</option>
+                </select>
+                <label for="yearFilter">Year:</label>
+                <input type="number" id="yearFilter" min="2000" max="2099" placeholder="YYYY">
+                <button id="applyFiltersBtn">Apply Filters</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>LAN No.</th>
+                        <th class="sortable" data-sort="date">Date (Filter/Sort)</th>
+                        <th class="sortable" data-sort="month">Month (Filter/Sort)</th>
+                        <th class="sortable" data-sort="year">Year (Filter/Sort)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="recordsTableBody">
+                    <!-- Records will be dynamically inserted here -->
+                </tbody>
+            </table>
+            <p id="noRecordsMessage" class="message" style="display: none;">No records found.</p>
+        </div>
+
+        <div class="pagination">
+            <button id="prevPageBtn" disabled>&laquo; Previous</button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button id="nextPageBtn" disabled>Next &raquo;</button>
+        </div>
+
+        <div class="bulk-download-section">
+            <button id="downloadAllBtn" style="display: none;">Download All Displayed</button>
+            <p id="downloadMessage" class="message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
